@@ -10,7 +10,6 @@ from pypdf.errors import DependencyError, PdfReadError
 
 try:
     from Crypto.Cipher import AES  # noqa: F401
-
     HAS_PYCRYPTODOME = True
 except ImportError:
     HAS_PYCRYPTODOME = False
@@ -23,8 +22,8 @@ RESOURCE_ROOT = PROJECT_ROOT / "resources"
 @pytest.mark.parametrize(
     ("name", "requires_pycryptodome"),
     [
-        # unencrypted pdf
         ("unencrypted.pdf", False),
+        # unencrypted pdf
         # created by:
         # qpdf --encrypt "" "" 40 -- unencrypted.pdf r2-empty-password.pdf
         ("r2-empty-password.pdf", False),
